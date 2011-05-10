@@ -54,9 +54,11 @@ public final class URIResultHandler extends ResultHandler {
   public void handleButtonPress(int index) {
     URIParsedResult uriResult = (URIParsedResult) getResult();
     String uri = uriResult.getURI();
+    //String uri = "http://www.designclub.cz/";
+
     switch (index) {
       case 0:
-        openURL(uri);
+        playSoundFile(uri);
         break;
       case 1:
         shareByEmail(uri);
@@ -78,5 +80,6 @@ public final class URIResultHandler extends ResultHandler {
   private boolean isGoogleBooksURI() {
     return ((URIParsedResult) getResult()).getURI().startsWith("http://google.com/books?id=");
   }
+
 
 }

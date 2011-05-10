@@ -36,11 +36,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.provider.Contacts;
 import android.view.View;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -313,6 +315,27 @@ public abstract class ResultHandler {
   final void openMap(String geoURI) {
     launchIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(geoURI)));
   }
+  
+  final void playSoundFile(String uri){
+	  MediaPlayer player = new MediaPlayer();
+	  try {
+		player.setDataSource(uri);
+		player.prepare();
+		player.start();
+	} catch (IllegalArgumentException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IllegalStateException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
+  }
+  
+  
 
   /**
    * Do a geo search using the address as the query.

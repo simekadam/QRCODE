@@ -511,7 +511,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
     TextView contentsTextView = (TextView) findViewById(R.id.contents_text_view);
     CharSequence displayContents = resultHandler.getDisplayContents();
-    contentsTextView.setText(displayContents);
+    contentsTextView.setText("HELLO WORLD!"+displayContents);
     // Crudely scale betweeen 22 and 32 -- bigger font for shorter text
     int scaledSize = Math.max(22, 32 - displayContents.length() / 4);
     contentsTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, scaledSize);
