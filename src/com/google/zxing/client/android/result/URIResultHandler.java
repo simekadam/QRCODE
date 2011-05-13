@@ -53,21 +53,22 @@ public final class URIResultHandler extends ResultHandler {
   @Override
   public void handleButtonPress(int index) {
     URIParsedResult uriResult = (URIParsedResult) getResult();
-    String uri = uriResult.getURI();
-    //String uri = "http://www.designclub.cz/";
+    String fullUri = uriResult.getURI();
+    String soundUri = fullUri.substring(fullUri.indexOf("#")+1);
+    
 
     switch (index) {
       case 0:
-        playSoundFile(uri);
+        playSoundFile(soundUri);
         break;
       case 1:
-        shareByEmail(uri);
+        shareByEmail(fullUri);
         break;
       case 2:
-        shareBySMS(uri);
+        shareBySMS(fullUri);
         break;
       case 3:
-        searchBookContents(uri);
+        searchBookContents(fullUri);
         break;
     }
   }
